@@ -27,14 +27,29 @@
     
     \section{Programming Problem 1}
     \subsection{Result}
+    
     \subsection{Code}
     \lstinputlisting[language=Python]{1.py}
     \section{Programming Problem 2}
     \subsection{Result}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{2.png}
+    \end{figure}
     \subsection{Code}
     \lstinputlisting[language=Python]{2.py}
     \section{Programming Problem 3}
     \subsection{Result}
+    \paragraph{}Batch Relaxation:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{3_batch.png}
+    \end{figure}
+    \paragraph{}Single Sample Relaxation:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{3_single.png}
+    \end{figure}
     \subsection{Code}
     \lstinputlisting[language=Python]{3.py}
 
