@@ -1,0 +1,124 @@
+\documentclass[]{article}
+
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{clrscode}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\title{Homework 1}
+\date{2015-10-15}
+\author{Jingwei Zhang 201528013229095}
+
+\begin{document}
+    \maketitle
+    \section{Problem 1}
+        \subsection{a}
+            \paragraph{}Since:
+                \begin{align*}
+                    P(error|x) = 
+                        \begin{cases}
+                            P(\omega_2 | x) &\quad \text{if }x>\theta \\
+                            P(\omega_1 | x) &\quad \text{if }x \leq \theta
+                        \end{cases}
+                \end{align*}
+            \paragraph{}Then:
+                \begin{align*}
+                    P(error) &= \int_{-\infty}^{+\infty} p(error,x)  \; \mathrm{d}x \\
+                             &= \int_{-\infty}^{\theta} p(\omega_1,x)  \; \mathrm{d}x + \int_{\theta}^{+\infty} p(\omega_2,x)  \; \mathrm{d}x \\
+                             &= \int_{-\infty}^{\theta} p(x|\omega_1)P(\omega_1)  \; \mathrm{d}x 
+                              + \int_{\theta}^{+\infty} p(x|\omega_2)P(\omega_2)  \; \mathrm{d}x \\
+                             &= P(\omega_1)\int_{-\infty}^{\theta} p(x|\omega_1)  \; \mathrm{d}x 
+                              + P(\omega_2)\int_{\theta}^{+\infty} p(x|\omega_2)  \; \mathrm{d}x
+                \end{align*}
+        \subsection{b}
+            \paragraph{} Since $x$ is defined on $(-\infty,+\infty)$, if $P(error)$ has minimum, $P'(error)$ must be 0.
+                \begin{align*}
+                    P'(error) &= [P(\omega_1)\int_{-\infty}^{\theta} p(x|\omega_1)  \; \mathrm{d}x 
+                              + P(\omega_2)\int_{\theta}^{+\infty} p(x|\omega_2)  \; \mathrm{d}x]' \\                              
+                              &= P(\omega_1)[\int_{-\infty}^{\theta} p(x|\omega_1)  \; \mathrm{d}x ]'
+                              - P(\omega_2)[\int_{+\infty}^{\theta} p(x|\omega_2)  \; \mathrm{d}x]' \\                              
+                              &= P(\omega_1) p(\theta|\omega_1)
+                              - P(\omega_2) p(\theta|\omega_2) \\
+                              &= 0
+                \end{align*}
+            \paragraph{} We can get:
+                \begin{equation*}
+                    P(\omega_1) p(\theta|\omega_1)
+                              = P(\omega_2) p(\theta|\omega_2)
+                \end{equation*}
+        \subsection{c}
+            \paragraph{} No.$P'(error)=0$ for specific $x$ only guarantees that $x$ is an stagnation point. It can be a local maximum, a local minimum or just nothing. And there may be multiple $\theta$ that satisfy the equation.
+        \subsection{d}
+            \paragraph{}Suppose:
+            \begin{align*}
+                &P(\omega_1) = P(\omega_2) = \frac{1}{2} \\
+                &P(x|\omega_1) = \frac{1}{\sqrt{2\pi}}e^{-(x+1)^2/2} \\
+                &P(x|\omega_2) = \frac{1}{\sqrt{2\pi}}e^{-(x-1)^2/2}
+            \end{align*}
+            \paragraph{} Then:
+            \begin{align*}
+                &P(error) = \frac{1}{2}\int_{-\infty}^{\theta} \frac{1}{\sqrt{2\pi}}e^{-(x+1)^2/2}  \; \mathrm{d}x 
+                              + \frac{1}{2}\int_{-\infty}^{\theta} \frac{1}{\sqrt{2\pi}}e^{-(x-1)^2/2}  \; \mathrm{d}x \\
+                &P'(error) =  \frac{1}{2\sqrt{2\pi}}(e^{-(\theta+1)^2/2}+e^{-(\theta-1)^2/2}) \\
+                &P''(error) = \frac{-\theta}{\sqrt{2\pi}}(e^{-(\theta+1)^2/2}+e^{-(\theta-1)^2/2})
+            \end{align*}
+            \paragraph{}So, $P(\omega_1) p(\theta|\omega_1)= P(\omega_2) p(\theta|\omega_2)$($P'(error) = 0$) iff $\theta = 0$.
+             And $P''(error)<0, \forall \: \theta \in R$,
+             which means that $P'(error) < 0, \forall \: \theta \in (-\infty,0)$ and $P'(error) > 0, \forall \: \theta \in (0,+\infty)$. So that when $\theta = 0$,$P(error)$gets its global maximum.
+    \section{Problem 3}
+        \subsection{a}
+        \paragraph{}Suppose $\mu_1 \leq \mu_2$:
+            \subparagraph{}From the probability function we can get that: 
+            \begin{align*}
+                \begin{cases}
+                    p(x|\omega_1) \geq p(x|\omega_1), \text{if } x \leq \frac{\mu_2 + \mu_1}{2} \\
+                    p(x|\omega_1) < p(x|\omega_1), \text{if } x > \frac{\mu_2 + \mu_1}{2}
+                \end{cases}
+            \end{align*}
+            \subparagraph{}So, we decide $\omega_1$ if $x \leq (\mu_2 + \mu_1)/2$, otherwise decide $\omega_2$, which minimize $P_e$. Then the probability of error would be:
+            \begin{align*}
+                P_e &= \int_{-\infty}^{t} p(\omega_2,x)  \; \mathrm{d}x + \int_{t}^{+\infty} p(\omega_1,x)  \; \mathrm{d}x \quad(t=\frac{\mu_2 + \mu_1}{2}) \\
+                    &= P(\omega_2)\int_{-\infty}^{t} p(x|\omega_2)  \; \mathrm{d}x + P(\omega_1)\int_{t}^{+\infty} p(x|\omega_1)  \; \mathrm{d}x \\
+                    &=\frac{1}{2\sqrt{2\pi}\sigma}(\int_{-\infty}^{t} e^{-\frac{(x-\mu_2)^2}{2\sigma^2}}  \; \mathrm{d}x +\int_{t}^{+\infty} e^{-\frac{(x-\mu_1)^2}{2\sigma^2}}   \; \mathrm{d}x )\\
+                    &\text{Let }u_2=\frac{x-\mu_2}{\sigma},
+                                u_1=\frac{x-\mu_1}{\sigma} :  \\
+                    &=\frac{1}{2\sqrt{2\pi}}(\int_{-\infty}^{\frac{\mu_1 - \mu_2}{2}} e^{-\frac{u_2^2}{2}}  \; \mathrm{d}u_2 +\int_{\frac{\mu_2 - \mu_1}{2}}^{+\infty} e^{-\frac{u_1^2}{2}}   \; \mathrm{d}u_1 )   \\
+                    &\text{Let }u=u_1=-u_2 \\ 
+                    &=\frac{1}{2\sqrt{2\pi}}(\int_{\frac{\mu_2 - \mu_1}{2}}^{+\infty} e^{-\frac{u^2}{2}}   \; \mathrm{d}u  +\int_{\frac{\mu_2 - \mu_1}{2}}^{+\infty} e^{-\frac{u^2}{2}}   \; \mathrm{d}u ) \\
+                    &=\frac{1}{\sqrt{2\pi}}\int_{a}^{+\infty} e^{-\frac{u^2}{2}}   \; \mathrm{d}u \quad (a=\frac{\mu_2 - \mu_1}{\sigma})
+            \end{align*}
+            \paragraph{}When $\mu_1 > \mu_2$, the process is similar, we can get:
+            \begin{align*}
+           P_e &=\frac{1}{\sqrt{2\pi}}\int_{a}^{+\infty} e^{-\frac{u^2}{2}}   \; \mathrm{d}u \quad (a=\frac{\mu_1 - \mu_2}{\sigma})
+            \end{align*}
+            \paragraph{}Above all, the equation$P_e =\frac{1}{\sqrt{2\pi}}\int_{a}^{+\infty} e^{-\frac{u^2}{2}}   \; \mathrm{d}u \quad (a=\frac{|\mu_1 - \mu_2|}{\sigma})$ can be proven.
+        \subsection{b}
+            \paragraph{}Since:
+            \begin{align*}            
+            \lim_{a \to \infty} e^{-a^2 /2} = 0 \\
+            \lim_{a \to \infty} \frac{1}{\sqrt{2\pi}a} = 0
+            \end{align*}
+            \paragraph{}We can get:
+            \begin{align*}
+                \lim_{a \to \infty} P_e &= \lim_{a \to \infty}\frac{1}{\sqrt{2\pi}}\int_{a}^{+\infty} e^{-\frac{u^2}{2}}   \; \mathrm{d}t \\
+                    &\leq \lim_{a \to \infty}\frac{1}{\sqrt{2\pi}a}e^{-a^2 /2} \\
+                    &=\lim_{a \to \infty} e^{-a^2 /2} \lim_{a \to \infty} \frac{1}{\sqrt{2\pi}a}\\
+                    &=0
+            \end{align*}
+            
+    \section{Problem 4}
+        \subsection{a}
+            \paragraph{} Since these samples are independent, the joint probability density function is:
+            \begin{align*}
+P(x_1\omega_1,x_2\omega_3,x3\omega_3,x4\omega_2) &=P(x_1\omega_1)P(x_2\omega_3)P(x3\omega_3)P(x4\omega_2) \\
+&=P(x_1|\omega_1)P(x_2|\omega_3)P(x3|\omega_3)P(x4|\omega_2)P(\omega_1)P(\omega_2)P(\omega_3)^2\\
+&=z(\frac{0.6}{1})z(\frac{0.1-1}{1})z(\frac{0.9-1}{1})z(\frac{1.1-1}{1})\frac{1}{2}\frac{1}{4}(\frac{1}{4})^2
+&=
+            \end{align*}
+        \subsection{b}
+        \subsection{c}
+    \section{Problem 5}            
+\end{document}
