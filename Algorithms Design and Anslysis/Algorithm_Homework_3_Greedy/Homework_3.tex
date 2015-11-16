@@ -1,0 +1,107 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{clrscode3e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\title{Algorithm Homework 2}
+\date{2015-10-13}
+\author{Jingwei Zhang 201528013229095}
+
+\begin{document}
+    \maketitle
+    \section{Problem 1}
+        \subsection{Algorithm}
+        \paragraph{}Non-decreasingly sort all vertex according to its degree. For every vertex $i$ link it to $d_i$ vertices following. If this forms a graph, then these vertices can form a graph, if not, they can not form a graph.
+        \paragraph{Pseudo-code:} $D$ is the array storing the degree of every vertex. $\proc{Sort}(D)$ is a sorting procedure which sorts all integers in array $D$ non-decreasingly.
+\begin{codebox}
+\Procname{$\proc{Whether-Form-Graph}(D)$}
+\li $n \gets \attrib{D}{length}$
+\li $\proc{Sort}(D)$ 
+\li \For $i \gets 1$ \To $n$ \label{Whether-Form-Graph:for i}
+\li     \Do
+            $j \gets i+1$
+\li         \While $D[i] > 0$ and $j \leq n$ \label{Whether-Form-Graph:for j}
+\li             \Do
+                    \If $D[j] > 0$
+\li                 \Then $D[j]--$
+\li                       $D[i]--$
+\li                       $j++$
+                    \End
+                \End
+\li         \If $D[i] > 0$
+\li         \Then \Return Can-Not-Form-Graph
+            \End
+        \End
+\li \Return Can-Form-Graph
+\end{codebox}
+        \subsection{Correctness}
+        \begin{proof}We will prove our strategy can get an undirected graph if and only if there exits a graph whose node degrees are precisely the numbers $d_1,d_2,\dots,d_n$.
+        \item If degrees in $D$ can form a graph, non-decreasingly sort all vertex according to its degree. For each vertex $v_i$ with degree$d_i$ in non-decreasingly degree order, if it links to a vertex $v_j \notin v[i+1,i+d']$($d'$ denotes next $d'$ vertices that have exactly $d_i$ vertices linked to $v[i+1,n]$), then there must exits a vertex $v_k \in v[i+1,i+d']$ that links to $v_p, p > i$. Then rearrange the linkages from :$v_i-v_j,v_k-v_p$ to $v_i-v_k, v_j-v_p$. By such procedure, a new graph that following our strategy can be formed. Thus, our strategy can get an undirected graph.
+        \item If our strategy can get an undirected graph, it is obvious that there exits a graph whose node degrees are precisely the numbers $d_1,d_2,\dots,d_n$.
+        \end{proof}   
+        
+        \subsection{Complexity}
+            \paragraph{}The program $\proc{Whether-Form-Graph}(D)$ contains one sorting functions. If we use quick sort for sorting function, the time complexity of sort is $O(n\log n)$. The $\For$ loop in line \ref{Whether-Form-Graph:for i} will run $n$ times, the $\For$ loop in line \ref{Whether-Form-Graph:for j} will run at most $n-i$ times. Totally $\sum_{i=1}^n{\sum_{j=1}^{n-i}O(1)} = O(n^2)$. 
+            \paragraph{}Thus, total time complexity is $O(n^2)$. This algorithm's space complexity is $O(n)$ for storage of array $F$.            
+
+    \section{Problem 4}
+        \subsection{Algorithm}
+        \paragraph{}We can prove that setting $a_i = a_{(i)}$ and $b_i = b_{(i)}$ will maximize the payoff. Thus, the algorithm is simply sort array $A$ and $B$ in non-decreasing order and summing all $a_i^{b_i}$.
+        \paragraph{Pseudo-code:}$A,B$ are sets each containing $n$ integers. $\proc{Sort}(A)$ is a sorting procedure which sorts all integers in array $A$ non-decreasingly.
+        \begin{codebox}
+\Procname{$\proc{Maximum-payoff}(A,B)$}
+\li $n \gets \attrib{A}{length}$
+\li $\proc{Sort}(A)$
+\li $\proc{Sort}(B)$
+\li $payoff = 0$
+\li \For $i \gets 1$ \To $n$
+\li     \Do
+            $payoff = payoff + A[i]^{B[i]}$
+        \End 
+\li \Return $payoff$
+        \end{codebox}
+        \subsection{Correctness}
+            \begin{proof}
+            Firstly we rearrange the elements in array $A$ and $B$ in non-decreasing order, then the problem is converted to equivalent one: all elements in $A$ is fixed, find a permutation of $B$ that maximize $p = \sum_{i=1}^n a_i^{b_i}$.
+            \item Then we will prove that for any two elements $b_i$ and $b_j$ in $B$, the non-decreasing order of them will maximize the sum $a_i^{b_i} + a_j^{b_j}$. The mathematical representation is: $\forall a_i,a_j \in Z^+$, $\forall b_i, b_j \in Z^+$, if $a_i<a_j$ and $b_i < b_j$, then $a_i^{b_i} + a_j^{b_j} > a_i^{b_j} + a_j^{b_i}$. 
+            \item According to $a_i<a_j$ and $b_i < b_j$, we will get:
+            \begin{align*}
+            & a_j^{b_i} > a_i^{b_i} \\
+            & a_j^{b_j-b_i} > a_j^{b_j-b_i} \\
+    \implies& a_j^{b_i}(a_j^{b_j-b_i}-1) > a_i^{b_i}(a_j^{b_j-b_i}-1) \\
+    \implies& a_j^{b_j}-a_j^{b_i} > a_j^{b_j}-a_i^{b_i} \\
+    \implies& a_i^{b_i} + a_j^{b_j} > a_i^{b_j} + a_j^{b_i}
+            \end{align*}
+\item Finally, we prove that the payoff $p^*$ generated by $B^*$, the non-decreasing order of $B$, is larger than payoff $p'$ generated by any other permutation $B'$ of array $B$. For any permutation $B' \neq B^*$, perform a bubble sort on $B'$ to change $B'$ to $B_s$ with $O(n^2)$ times of swapping adjacent increasing elements. Suppose this process performs altogether $m$ times of swap. According to the two elements situation above, each swap will generates a new sequence $B'_k(k = 1,\dots,m)$ with a greater payoff $p'_k(k = 1,\dots,m)$. After $m$ times of swap, we get $B'_m = B^*$ with payoff $p'_m = p^* > p'$.
+            \end{proof}   
+        \subsection{Complexity}
+            \paragraph{}The program $\proc{Maxium-Payoff}(A,b)$ contains two sorting functions and a scan from $1$ to $n$. If we use quick sort for sorting function, then its time complexity is $O(n\log n)$.
+    
+    \section{Problem 6}
+        \subsection{Result}
+            \paragraph{} The program is compiled using g++ with -O3 parameter. Blow is the running time of Dijkstra's shortest path algorithm using different data structures. It runs on graph.txt with $20000$ nodes. Algorithm starts from node $6676$ to node $18853$ and returns shortest path length $29$.
+            \begin{table}[h!]
+            \centering
+            \caption{Running Time of Dijkstra's Shortest Path using Different Data Structures}
+            
+            \begin{tabular}{l|*{4}{c}}
+            \hline
+Data structure & Linked List & Binary Heap & Binomial Heap & Fibonacci Heap \\
+\hline
+Running time(second) & $1.22607$ & $0.000602$ & $0.027132$ & $0.018106$ \\
+            \hline            
+            \end{tabular}
+            \end{table}
+        \subsection{C++ Code}
+            \lstinputlisting[language=C++]{Dijkstra.cpp}
+    
+    
+\end{document}

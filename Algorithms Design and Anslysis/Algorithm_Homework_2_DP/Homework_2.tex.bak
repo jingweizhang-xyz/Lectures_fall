@@ -1,0 +1,162 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{clrscode3e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\renewcommand\qedsymbol{$\blacksquare$}
+\title{Algorithm Homework 2}
+\date{2015-10-13}
+\author{Jingwei Zhang 201528013229095}
+
+\begin{document}
+    \maketitle
+    \section{Problem 1}
+        \subsection{Sequence}
+            \subsubsection{Optimal Substructure}
+                \paragraph{}Suppose the houses are placed in a line from left to right labeled with integer from $1$ to $n$, each storing money $h_i(i = 1,\dots,n)$. The optimal substructure is the maximum amount of money $m_i$ the the robber can get from house $1$ to $i$($[1, i]$), the DP equation is:
+                \begin{align*}
+                m_i = \begin{cases}
+                     0 \;, & \text{if } i=0 \\
+                     h_i \;, &\text{if } i=1 \\
+                     max(m_{i-1}, h_i + m_{i-2}) \;, & \text{otherwise}
+                     \end{cases}
+                \end{align*}
+               \paragraph{}The answer to this problem is $m_n$.
+            \subsubsection{Algorithm}
+            \begin{codebox}
+\Procname{$\proc{Maximim-Robbed-Money-Sequence}(H)$}
+\li $n \gets \attrib{H}{length}$
+\li $m[0] \gets 0$
+\li $m[1] \gets H[1]$
+\li \For $i \gets 2$ \To $n$
+\li     \Do
+            $m[i] = max(m[i-1], H[i] + m[i-2])$
+        \End 
+\li \Return $m[n]$
+            \end{codebox}
+            \subsubsection{Correctness}
+                \begin{proof}
+                $m[i]$ maintains the maximum amount of money the robber can get in house $[1,i]$. For $i = 0,1$, the correctness of $m[i]$ is obvious. Suppose $m[i]$ is correct $\forall i= 1,\dots,k-1$. For $i = k$:
+                    \item If the robber steals house $k$, he will get $H[k]$ in it and have not steal house $k-1$; before house $k-1$ he gets at most $m[k-2]$, according to the optimal structure, $m[k] = H[i]+m[k-2]$. 
+                    \item The correctness of this optimal structure: Suppose we have a smaller $m'[k-2](<m[k-2])$(not the optimal solution of sub-problem with size $k-2$) that generates the optimal solution $m'[k](>m[k])$ of larger problem with size $k$. Then we substitute its previous $k-2$ part with our optimal solution for sub-problem since house $k-1$ is not stolen, we get a new solution $m'[k] - m'[k-2] + m[k-2]$ for larger problem, which is larger than $m'[k]$, contradictory.
+                 \item If he does not steal house $k$, no constrain exits on previous houses. Thus, $m[i] = m[i-1]$, according to the optimal structure.
+                 \item The correctness of this optimal structure: Suppose we have a smaller $m'[k-1](<m[k-1])$(not the optimal solution of sub-problem with size $k-1$) that generates the optimal solution $m'[k](>m[k])$ of larger problem with size $k$. Then we substitute its previous $k-1$ part with our optimal solution for sub-problem since house $k$ is not stolen, we get a new solution $m'[k] - m'[k-1] + m[k-1]$ for larger problem, which is larger than $m'[k]$, contradictory.
+                 \item Then, picking the maximum value of these two(steal or not) gets maximum amount of money the robber can get in house $[1,k]$, which means $m[i]$ is correct for $i = k$ and obviously when $i>n$ $\proc{Maximim-Robbed-Money-Sequence}$ stops. Thus the correctness of this algorithm is proven.
+                \end{proof} 
+            
+            \subsubsection{Complexity}The size of this problem is the number of houses $n$. Thus, sequence $m$ has $n+1$ elements with $O(1)$ computing each. Thus the total time complexity is $O(n)$ and space complexity is    $O(n)$ for storing array $m$.
+        
+        
+        
+        \subsection{Circle}
+            \subsubsection{Algorithm}
+                \paragraph{}Suppose the houses are placed in a circle, and we arbitrary label one with integer $1$, then label others with integer from $2$ to $n$, clockwise, each storing money $h_i(i = 1,\dots,n)$.  Then, we enumerate all possible conditions of house 1, stolen or not stolen, then, the problem left is a sequence problem we have solved in previous part.
+                \begin{codebox}
+\Procname{$\proc{Maximim-Robbed-Money-Cirecle}(H)$}
+\li $n \gets \attrib{H}{length}$
+\zi \Comment If house $1$ is stolen, house $2$ and house $n$ must not be stolen.
+\li $Hs \gets H[3,\dots,n-1] + H[1]$ 
+\li $ms \gets \proc{Maximim-Robbed-Money-Sequence}(Hs)$
+\zi \Comment If house $1$ is not stolen.
+\li $Hns \gets H[2,\dots,n]$
+\li $mns \gets \proc{Maximim-Robbed-Money-Sequence}(Hns)$
+\li \Return $max(ms, mns)$
+                \end{codebox}
+            \subsubsection{Correctness}
+            \begin{proof}
+            If we enumerate two possible states of house 1, the left part ($[3,\dots,n-1]$ for stolen and $[2,n]$ for not stolen) have no connection directly between the head and tail house, thus, they are sequence problem. The correctness of sequence problem has been proven in previous section.
+            \end{proof}
+                
+            \subsubsection{Complexity}
+                \paragraph{} We call function $\proc{Maximim-Robbed-Money-Sequence}$ twice, both with size $O(n)$. This function costs $O(n)$ of time and $O(n)$ of space. Thus, the total time complexity is $O(n)$, total space complexity is $O(n)$.
+        
+    \section{Problem 2}
+        \subsection{Optimal Substructure}
+            \paragraph{}The optimal substructure is the minimum path sum $s_{i,j}$ from current place(row $i$, column $j$, $j \leq i$) to bottom, the DP equation is ($a_{i,j}$ denotes the number in row $i$ , column $j$):
+            \begin{equation*}
+            s_{i,j} = \begin{cases}
+                     a_{i,j} \;,   & \text{if row i is the bottom row}   \\
+                     a_{ij}+min(s_{i+1,j},s_{i+1,j+1}) \;, & \text{otherwise}
+                     \end{cases}
+            \end{equation*}
+            \paragraph{} The answer to this problem is $s_{1,1}$.
+        \subsection{Algorithm}
+        \paragraph{Pseudo-code:} A is the matrix storing the number. r is the number of rows(columns) in A. S is the matrix storing the minimum path sum $S[i][j]$ from current place(row $i$, column $j$, $j \leq i$) to bottom.
+\begin{codebox}
+\Procname{$\proc{Minimum-Path-Sum}(A,r)$}
+\li \For $j \gets 1$ \To $r$
+\li     \Do
+            $S[r][j] \gets A[r][j]$ 
+        \End 
+\li \For $i \gets n-1$ \To $1$
+\li     \Do
+            \For $j \gets 1$ \To $i$
+\li             \Do
+                    $S[i][j] = A[i][j] + min(S[i+1][j],S[i+1][j+1])$
+            \End
+        \End
+\li \Return $S[1][1]$
+\end{codebox}
+        \subsection{Correctness}
+        \begin{proof}[Proof of Optimal Substructure:]
+        Suppose there exists a smaller path sum $s_l'$(what we get is $s_l$ in $\proc{Minimim-Path-Sum}$ and $s_l' > s_l$) in an arbitrary sub-problem(the min sum from a not-top place to bottom) which leads to the minimum global path sum $s_g'$(what we get is $s_g$ in $\proc{Minimum-Path-Sum}$ and $s_g' < s_g$). Due to the path from top to this place above and the path from this place to bottom are independent, we can always substitute $s_l'$ part with $s_l$ part, that leads a larger global path sum $s_g'' = s_g' + s_l - s_l' < s_g'$. However, this contradicts to the assumption that $s_g'$ is the minimum global path sum. 
+        \end{proof}   
+        \subsection{Complexity}
+            \paragraph{}Let the size of this Problem be the total numbers in this triangle. $S$ matrix have totally $O(n^2)$ numbers with $O(1)$ for computing each. Thus, the total time complexity is $O(n)$ and space complexity is $O(n^2)$ for the storage of $S$.
+            
+
+    \section{Problem 5}
+        \subsection{Optimal Substructure}
+            \paragraph{}The optimal substructure is the number of ways ($w_j$) to decode the sequence $S[1, i]$ (suppose the original sequence is $S[1,n]$), the DP equation is:
+            \begin{align*}
+            w_j = \begin{cases}
+                     0 \;,   & \text{if }j=0   \\
+                     1 \;,   & \text{if }j=1   \\
+                     w_{j-1} \;, & \text{if }j \geq 2 \text{ and } 10*S[j-1]+S[j] > 26 \\
+                     w_{j-1} + w_{j-2} \;, & \text{if }j \geq 2 \text{ and } 10*S[j-1]+S[j] \leq 26 \\
+                     \end{cases}
+            \end{align*}
+            \paragraph{}The answer to this problem is $w_n$.
+        \subsection{Algorithm}
+        \paragraph{Pseudo-code:}$S$ represents the message containing $n$ digits. $w$ stores the number of ways decoding the prefix of message sequence.
+        \begin{codebox}
+\Procname{$\proc{Number-of-Ways-Decoding-Message}(S)$}
+\li $n \gets \attrib{S}{length}$
+\li $w[0] \gets 0$
+\li $w[1] \gets 1$
+\li \For $j \gets 2$ \To $n$
+\li     \Do
+            \If $10*S[j-1]+S[j] > 26$
+\li         \Then $w[j] \gets w[j-1]$
+\li         \Else $w[j] \gets w[j-1] + w[j-2]$
+            \End
+        \End 
+\li \Return $w[n]$
+        \end{codebox}
+        \subsection{Correctness}
+            \begin{proof}
+            $w[i]$ maintains the number of ways to decode the sequence $S[1,i]$. For $i = 0,1$, the correctness of $w[i]$ is obvious. Suppose $w[i]$ is correct $\forall i= 1,\dots,k-1$. For $i = k$:
+                    \item If $10*S[k-1]+S[k] > 26$, which means $S[j-1]S[j]$ can be decoded as a single character. In this case the number of ways is $w[k-2]$ according to the optimal structure. Also, $S[k]$ can be decoded as a single character. In this case, the number is $w[k-1]$. Thus, $m[k] = w[k-1]+w[k-2]$.  
+                    \item The correctness of optimal substructure: Suppose there exists a larger number of ways decoding the prefix sequence $S[1,k-1]$ with number $w_{k-1}'$(what we get is $w_{k-1}$ in $\proc{Number-of-Ways-Decoding-Message}$ and $w_{k-1}' \leq w_{k-1}$) which leads to the maximum global path sum $w_k'$(what we get is $w_k$ in $\proc{Number-of-Ways-Decoding-Message}$ and $w_k' \geq w_k$). If we substitute 
+        
+         Due to the path from top to this place above and the path from this place to bottom are independent, we can always substitute $s_l'$ part with $s_l$ part, that leads a larger global path sum $s_g'' = s_g' + s_l - s_l' > s_g'$. However, this contradicts to the assumption that $s_g'$ is the maximum global path sum. 
+        \end{proof}   
+        \subsection{Complexity}
+            \paragraph{}The size of this problem is the length of message sequence, $n$, the same as $w$. For each $w[j]$, computing costs only $O(1)$. So the total time complexity is $O(n)$ and space complexity is $O(n)$ for storing $w$.
+    
+    \section{Problem 6}
+        \subsection{Algorithm}
+            \paragraph{}Since there are two transactions(if there is only one, we can sell and buy the stock in a single day within this transaction), we can divide the problem into two independent sub-problems:the max profit $p_1$ of the first transaction within day $[0,i)$ and max profit $p_2$ of the second transaction within day $[i,n)$. We can enumerate all possible $i$ and find the max $p_1+p_2$. This costs $O(n)$.
+            \paragraph{}To find the max profit in first transaction, we compute the max profit $ps_i$ we can get if we sell the stock in day $i$. The optimal substructure is the minimum price $min_i$ in day $[0,i]$, $min_{i+1} = min(p_i,min_i)$. Then $ps_i=p_i-min_i$, which costs $O(n)$ to enumerate all $i$ in $[0,n)$. Then the max profit $pm_i$ within day $[0,i)$ will be $pm_0 = 0,pm_i = max(pm_{i-1},ps_i)$, that costs $O(n)$.The second transaction is similar.
+            \paragraph{}From what have mentioned above, the total time complexity is $O(n)$.
+        \subsection{C++ Code}
+            \lstinputlisting[language=C++]{stocks.cpp}
+    
+    
+\end{document}

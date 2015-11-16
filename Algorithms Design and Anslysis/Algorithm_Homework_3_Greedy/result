@@ -1,0 +1,43 @@
+starting from 6676 to 18853, all 20000 vertics
+array like: 29  1.22607seconds
+binary heap: 29 0.000602seconds
+binomial heap: 29       0.027132seconds
+fibonacci heap: 29      0.018106seconds
+        node 347: 1 path
+        node 695: 1 path
+        node 1446: 1 path
+        node 1505: 2 pathes
+        node 1711: 1 path
+        node 2086: 1 path
+        node 2098: 1 path
+        node 2326: 2 pathes
+        node 2781: 2 pathes
+        node 3463: 1 path
+        node 3610: 1 path
+        node 4653: 1 path
+        node 8715: 2 pathes
+        node 9020: 3 pathes
+        node 9275: 1 path
+        node 9542: 1 path
+        node 9585: 2 pathes
+        node 9783: 4 pathes
+        node 9873: 3 pathes
+        node 10208: 3 pathes
+        node 10731: 1 path
+        node 11506: 1 path
+        node 11530: 1 path
+        node 13125: 1 path
+        node 13280: 5 pathes
+        node 13646: 1 path
+        node 13709: 1 path
+        node 13875: 1 path
+        node 14491: 1 path
+        node 14525: 5 pathes
+        node 14528: 1 path
+        node 14959: 1 path
+        node 16178: 1 path
+        node 16733: 1 path
+        node 17070: 1 path
+        node 19410: 1 path
+        node 19431: 1 path
+        node 19993: 1 path
