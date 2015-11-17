@@ -1,3 +1,3 @@
-P5.py and P6.py is the source code file of Problem 5 and Problem 6 respectively.
-They require python3(!), python-numpy(for python3) and python-matplotlib(for python3) to run.
-Testing enviroment is Archlinux, it should work in Windows. 
+1.py, 2.py and 3.py are the source code files
+They require python3(!), python-numpy(for python3) and python-matplotlib(for python3) to execute.
+My testing enviroment is Archlinux. 
