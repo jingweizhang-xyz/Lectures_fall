@@ -27,7 +27,7 @@
     
     \section{Programming Problem 1}
     \subsection{Result}
-    
+    \paragraph{The Number of Iterations:} 23 for $\omega_1$ and $\omega_2$, 16 for $\omega_3$ and $\omega_2$.
     \subsection{Code}
     \lstinputlisting[language=Python]{1.py}
     \section{Programming Problem 2}

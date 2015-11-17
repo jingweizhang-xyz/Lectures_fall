@@ -62,7 +62,7 @@ def rand_start(n):
     return [np.random.uniform() for i in range(n)]
 
 def get_init_b(n):
-    return [np.random.uniform() for i in range(n)]
+    return [0.1 for i in range(n)]
 
 def Ho_Kashyap(s1, s2, a_start, b_start, k_max, b_min):
     s = [[1,x[0],x[1]] for x in s1]
@@ -77,11 +77,6 @@ def Ho_Kashyap(s1, s2, a_start, b_start, k_max, b_min):
         # inpu = input("interation")
         e = Y * a - b
         # all_e.append((e.T * e)[0,0])
-        cnt = 0
-        for i in range(len(s)):
-            if (a.T * ((Y[i,]).T))[0, 0] < 0:
-                cnt += 1
-        all_e.append(cnt)
         # print(cnt)
         if(np.max(np.abs(e)) < b_min):
             split_able = True
@@ -91,7 +86,7 @@ def Ho_Kashyap(s1, s2, a_start, b_start, k_max, b_min):
         b = b + (2 * eta(k)) * e_plus
         a = Y_inv * b
     print(split_able)
-    return all_e
+    return [a[0,0],a[1,0],a[2,0]]
 
 if __name__ == '__main__':
     k_max = 10000
@@ -99,21 +94,20 @@ if __name__ == '__main__':
     start_b = get_init_b(len(omega1)+len(omega3))
     b_min = 1E-5
     # omega 1 and omega 3
-    x = [i for i in range(1, k_max + 1)]
-    all_E_1 = Ho_Kashyap(omega1, omega3,
+    a = ll_E_1 = Ho_Kashyap(omega1, omega3,
         start_a, start_b, k_max, b_min)
-    # print(all_E_1[len(all_E_1)-1])
-    # omega 2 and omega 4
-    all_E_2 = Ho_Kashyap(omega2, omega4,
-        start_a, start_b, k_max, b_min)
-    # print(all_E_2)
-    # plot
-    ax = plt.gca()
-    ax.set_xscale('log')
-    plt.title("Training Errors")
-    plt.plot(x,all_E_1,color='b', 
-        label="omega 1 and omega 3")
-    plt.plot(x,all_E_2,color='r',
-        label="omega 2 and omega 4")
-    plt.legend()
+    print(a)
+    x = np.linspace(-10, 10)
+    print(x)
+    y = [-(a[1] * xi + a[0]) / a[2] for xi in x]
+    print(y)
+    x_1 = [x[0] for x in omega1]
+    y_1 = [x[1] for x in omega1]
+
+    x_2 = [x[0] for x in omega3]
+    y_2 = [x[1] for x in omega3]
+
+    plt.scatter(x_1, y_1, color='r')
+    plt.scatter(x_2, y_2, color='b')
+    plt.plot(x, y, color='g')
     plt.show()
