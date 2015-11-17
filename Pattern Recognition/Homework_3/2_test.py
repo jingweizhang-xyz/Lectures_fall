@@ -101,13 +101,13 @@ if __name__ == '__main__':
     print(x)
     y = [-(a[1] * xi + a[0]) / a[2] for xi in x]
     print(y)
-    x_1 = [x[0] for x in omega1]
-    y_1 = [x[1] for x in omega1]
+    x_1 = [x[0] for x in omega3]
+    y_1 = [x[1] for x in omega3]
 
-    x_2 = [x[0] for x in omega3]
-    y_2 = [x[1] for x in omega3]
+    x_2 = [x[0] for x in omega2]
+    y_2 = [x[1] for x in omega2]
 
     plt.scatter(x_1, y_1, color='r')
     plt.scatter(x_2, y_2, color='b')
-    plt.plot(x, y, color='g')
+    # plt.plot(x, y, color='g')
     plt.show()

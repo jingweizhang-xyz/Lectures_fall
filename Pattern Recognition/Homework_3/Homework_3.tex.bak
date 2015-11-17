@@ -17,17 +17,37 @@
 \begin{document}
     \maketitle
     \section{Problem 1}
-    %\begin{figure}[H]
-    %    \centering
-    %    \includegraphics[scale=0.15]{P1.jpg}
-    %\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{P1.png}
+    \end{figure}
     \section{Problem 2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.3]{P2.png}
+    \end{figure}
     \section{Problem 3}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{P3.png}
+    \end{figure}
     \section{Problem 4}
-    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.3]{P4.png}
+    \end{figure}
     \section{Programming Problem 1}
     \subsection{Result}
-    \paragraph{The Number of Iterations:} 23 for $\omega_1$ and $\omega_2$, 16 for $\omega_3$ and $\omega_2$.
+    \paragraph{The Number of Iterations:} 23 for $\omega_1$ and $\omega_2$, 16 for $\omega_3$ and $\omega_2$. From figures blow we can find that points of $\omega_3$ and $\omega_2$ are much more scattered, so that $\sum_{y \in Y} y$  will be farther away from current $a$. This will make $a$ converge quicker. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{1_1_2.png}
+        \caption{Figure for samples belong $$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{1_3_2.png}
+    \end{figure}
     \subsection{Code}
     \lstinputlisting[language=Python]{1.py}
     \section{Programming Problem 2}
@@ -36,6 +56,7 @@
         \centering
         \includegraphics[scale=0.5]{2.png}
     \end{figure}
+    \paragraph{Analyses:}The two problems are both non-linear separable. From the program we get that all elements of $e$ is less than $0$ when it ends. The convergence rate of $\omega_2$ and $\omega_4$ is faster than that of $\omega_1$ and $\omega_3$.
     \subsection{Code}
     \lstinputlisting[language=Python]{2.py}
     \section{Programming Problem 3}
@@ -45,6 +66,7 @@
         \centering
         \includegraphics[scale=0.5]{3_batch.png}
     \end{figure}
+    \paragraph{Convergence Rate:} The convergence rate of $b=0.1$ is a bit faster than that of $b=0.5$.
     \paragraph{}Single Sample Relaxation:
     \begin{figure}[H]
         \centering
