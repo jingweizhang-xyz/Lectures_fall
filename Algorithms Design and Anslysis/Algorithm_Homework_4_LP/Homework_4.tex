@@ -1,0 +1,90 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{clrscode3e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\title{Algorithm Homework 4}
+\date{2015-11-26}
+\author{Jingwei Zhang 201528013229095}
+
+\begin{document}
+    \maketitle
+    \section{Problem 2}
+        \subsection{LP Formulation}
+        \paragraph{}Let $x_i(i=1,\dots,n)$ be the arrival time of the  i-th airplane. Since the i-th airplane should land between $s_i$ and $t_i$ for all $i=1,\dots,n$. We have two constraints for each i: $s_i \leq x_i$ (this guarantees that $x_i \geq 0$) and $x_i \leq t_i$. Furthermore, we would like to maximize the minimum of $x_{i+1} - x_i(i = 1,\dots,n-1)$. Let $m$ be the minimum of $x_{i+1} - x_i$. Then, we have constraints: $x_{i+1} - x_i \geq m$ for all $i = 1,\dots,n-1$. Finally, the objective function is maximize $m$. 
+        \paragraph{LP Formulation:} 
+        \begin{equation*}
+\begin{array}{cl@{}ll}
+\text{Max}  & m &\\
+\text{s.t.} & x_i \geq s_i,\;  & i=1,\dots,n  \\
+            & x_i \leq t_i,\;  & i=1,\dots,n  \\
+            & x_{i+1} - x_i \geq m,\; & i = 1,\dots,n-1 \\
+            
+\end{array}
+        \end{equation*}
+        \subsection{An Instance}
+        \paragraph{Instance:}We use the instance in this problem:  
+\begin{table}[h!]
+            \centering            
+            \begin{tabular}{l|*{3}{c}}
+            \hline
+$s_i(min)$ & $600$ & $680$ & $720$ \\
+\hline
+$t_i(min)$ & $660$ & $700$ & $740$ \\
+            \hline            
+            \end{tabular}
+\end{table}
+        \paragraph{Result:} GLPK gets the following answer:
+\begin{table}[h!]
+            \centering            
+            \begin{tabular}{*{4}{c}}
+            \hline
+$m$ & $x_i$ & $x_2$ & $x_3$ \\
+\hline
+$60$ & $600$ & $6800$ & $740$ \\
+            \hline            
+            \end{tabular}
+\end{table}
+        %\paragraph{GLPK Input File:}
+        %\lstinputlisting{2_LP.mod}
+    \section{Problem 4}
+        \subsection{LP Formulation}
+        \paragraph{}Let $x_i(i=1,\dots,n)$ be the distance of the i-th gas station from the end point. Since the i-th gas station should be placed at most $r$ far away from the i-th twon, which has distance $d_i$. We have two constraints for each i: $d_i - r \leq x_i$ and $x_i \leq d_i + r$. Furthermore, we would like to minimize the maximum of $x_{i+1} - x_i(i = 1,\dots,n-1)$. Let $m$ be the maximum of $x_{i+1} - x_i$. Then, we have constraints: $x_{i+1} - x_i \leq m$ for all $i = 1,\dots,n-1$. Finally, the objective function is minimize $m$. 
+        \paragraph{LP Formulation:} 
+        \begin{equation*}
+\begin{array}{cl@{}ll}
+\text{Min}  & m &\\
+\text{s.t.} & x_i \geq d_i - r,\;  & i=1,\dots,n  \\
+            & x_i \leq d_i + r,\;  & i=1,\dots,n  \\
+            & x_{i+1} - x_i \leq m,\; & i = 1,\dots,n-1 \\
+            
+\end{array}
+        \end{equation*}
+    
+    \section{Problem 8}
+        \subsection{LP Formulation}
+        \paragraph{LP Formulation:} 
+        \begin{equation*}
+\begin{array}{cl@{}ll}
+\text{Min}  & \sum_{i,j}\varepsilon_{ij} &\\
+\text{s.t.} & \varepsilon_{ij} \geq 0,\;  & \forall i,j  \\
+            & x_i - x_j - d_{ij} \leq \varepsilon_{ij},\;  & \forall i,j   \\
+            & x_i - x_j - d_{ij} \geq -\varepsilon_{ij},\; & \forall i,j  \\
+            
+\end{array}
+        \end{equation*}
+        \subsection{Result}
+            \paragraph{}Solving this problem by GLPK gets the optimum $1627494$, with 6 seconds(including file input) and 310.3 Mb of memory. The algorithm mentioned in part 2 gets $1627617$ with 0.015 second and very few memory usage. From the two results, we can conclude that this algorithm does not necessarily converge to the optimum, but runs faster and uses much less memory.
+        \subsection{C++ Code}
+            \lstinputlisting[language=C++]{8.cpp}
+    
+    
+\end{document}

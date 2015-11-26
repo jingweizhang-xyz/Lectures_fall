@@ -1,0 +1,1 @@
+glpsol -m xxx.mod -o xxxx.sol
