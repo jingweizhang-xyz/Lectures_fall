@@ -33,9 +33,8 @@
     \end{figure}
     \section{Programming Problem 1}
     \subsection{Result}
-    \paragraph{Question (a)}From my experiment, averagely, if the number of nodes in the hidden layer increases, the minimum of judge function will increase, though it requires more passes of training samples.
-    \paragraph{Question (b)}Effects of different $\eta$ have shown in Figures blow. From these two figures we can see that generally, when eta increases, the 
-    \paragraph{Question (c)}
+    \paragraph{Question (a)}From my experiment, averagely, if the number of nodes in the hidden layer increases, the minimum of judge function will increase, though it requires more passes of training samples. It is difficult to draw a figure to show that trend, since all weights are initially random numbers.
+    \paragraph{Question (b)}Effects of different $\eta$ have shown in Figures blow. From these two figures we can see that generally, when eta increases, the judging function will decrease to its minimum more quickly.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.5]{PP1_batch.png}
@@ -45,7 +44,9 @@
         \centering
         \includegraphics[scale=0.5]{PP1_single.png}
         \caption{Figure for Single Sample BP}
-    \end{figure}
+    \end{figure}  
+    \paragraph{Question (c)}Figures are shown above.
+
     \subsection{Code}
     \lstinputlisting[language=Python]{1.py}
 
