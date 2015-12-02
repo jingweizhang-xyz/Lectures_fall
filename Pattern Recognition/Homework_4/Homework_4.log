@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.11.15)  1 DEC 2015 21:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.11.15)  2 DEC 2015 13:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -352,42 +352,74 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 18.
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+<P1.jpg, id=1, 833.1125pt x 745.28438pt>
+File: P1.jpg Graphic file (type jpg)
+ <use P1.jpg>
+Package pdftex.def Info: P1.jpg used on input line 22.
+(pdftex.def)             Requested size: 499.87137pt x 447.17407pt.
+
+<P2.jpg, id=2, 758.835pt x 628.84938pt>
+File: P2.jpg Graphic file (type jpg)
+ <use P2.jpg>
+Package pdftex.def Info: P2.jpg used on input line 27.
+(pdftex.def)             Requested size: 379.41658pt x 314.42392pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./P1.jpg>]
+<P3.jpg, id=12, 1053.9375pt x 751.30687pt>
+File: P3.jpg Graphic file (type jpg)
+ <use P3.jpg>
+Package pdftex.def Info: P3.jpg used on input line 32.
+(pdftex.def)             Requested size: 474.2675pt x 338.08496pt.
+ [2 <./P2.jpg>]
+<PP1_batch.png, id=16, 578.16pt x 434.3427pt>
+File: PP1_batch.png Graphic file (type png)
+ <use PP1_batch.png>
+Package pdftex.def Info: PP1_batch.png used on input line 40.
+(pdftex.def)             Requested size: 289.07928pt x 217.17082pt.
+
+<PP1_single.png, id=18, 578.16pt x 434.3427pt>
+File: PP1_single.png Graphic file (type png)
+ <use PP1_single.png>
+Package pdftex.def Info: PP1_single.png used on input line 45.
+(pdftex.def)             Requested size: 289.07928pt x 217.17082pt.
+ [3 <./P3.jpg>] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) (./1.py [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 47.
-
-(/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
+) (./1.py [4 <./PP1_batch.png> <./PP1_single.png>]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 49.
+ (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 47.
-) [2] (./Homework_4.aux) ) 
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 49.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 53.
+
+(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
+ [5] [6] [7]) [8]
+(./Homework_4.aux) ) 
 Here is how much of TeX's memory you used:
- 4868 strings out of 493054
- 68321 string characters out of 6140585
- 183291 words of memory out of 5000000
- 8310 multiletter control sequences out of 15000+600000
+ 4974 strings out of 493054
+ 69587 string characters out of 6140585
+ 196926 words of memory out of 5000000
+ 8406 multiletter control sequences out of 15000+600000
  10005 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,43p,342b,1604s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb>
-Output written on Homework_4.pdf (2 pages, 124439 bytes).
+ 38i,7n,43p,343b,1600s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+0.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Homework_4.pdf (8 pages, 2677205 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 71 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -19,31 +19,34 @@
     \section{Problem 1}
     \begin{figure}[H]
         \centering
-        %\includegraphics[scale=0.45]{P1.png}
+        \includegraphics[scale=0.6]{P1.jpg}
     \end{figure}
     \section{Problem 2}
     \begin{figure}[H]
         \centering
-        %\includegraphics[scale=0.3]{P2.png}
+        \includegraphics[scale=0.5]{P2.jpg}
     \end{figure}
     \section{Problem 3}
     \begin{figure}[H]
         \centering
-        %\includegraphics[scale=0.25]{P3.png}
+        \includegraphics[scale=0.45]{P3.jpg}
     \end{figure}
     \section{Programming Problem 1}
     \subsection{Result}
-    \paragraph{The Number of Iterations:} 23 for $\omega_1$ and $\omega_2$, 16 for $\omega_3$ and $\omega_2$. From figures blow we can find that points of $\omega_3$ and $\omega_2$ are much more scattered, so that $\sum_{y \in Y} y$  will be farther away from current $a$. This will make $a$ converge quicker. 
+    \paragraph{Question (a)}From my experiment, averagely, if the number of nodes in the hidden layer increases, the minimum of judge function will increase, though it requires more passes of training samples. It is difficult to draw a figure to show that trend, since all weights are initially random numbers.
+    \paragraph{Question (b)}Effects of different $\eta$ have shown in Figures blow. From these two figures we can see that generally, when eta increases, the judging function will decrease to its minimum more quickly.
     \begin{figure}[H]
         \centering
-        %\includegraphics[scale=0.4]{1_1_2.png}
-        \caption{Figure for samples belonging to $\omega_1$ and $\omega_2$}
+        \includegraphics[scale=0.5]{PP1_batch.png}
+        \caption{Figure for Batch BP}
     \end{figure}
     \begin{figure}[H]
         \centering
-        %\includegraphics[scale=0.4]{1_3_2.png}
-        \caption{Figure for samples belonging to $\omega_3$ and $\omega_2$}
-    \end{figure}
+        \includegraphics[scale=0.5]{PP1_single.png}
+        \caption{Figure for Single Sample BP}
+    \end{figure}  
+    \paragraph{Question (c)}Figures are shown above.
+
     \subsection{Code}
     \lstinputlisting[language=Python]{1.py}
 
