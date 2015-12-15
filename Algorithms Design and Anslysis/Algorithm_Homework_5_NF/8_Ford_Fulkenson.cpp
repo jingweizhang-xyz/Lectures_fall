@@ -72,6 +72,14 @@ bool get_graph(istream& in){
     return !is_end;
 }
 
+void show_graph(){
+    for(int i = 0;i< graph.size();i++){
+        cout<<i<<":";
+        for(Edge &e: graph[i]){
+            cout<<" ["<<e.to<<","<<e.cap<<"]";
+        }cout<<endl;
+    }
+}
 int dfs(int s, int t, int min_flow){
     if(s == t){
         return min_flow;
@@ -105,6 +113,7 @@ int max_flow(int s, int t){
             break;
         }
     }
+    show_graph();
     return flow;
 }
 
@@ -113,7 +122,9 @@ int main()
     // Input part
     ifstream s_file;
     s_file.open(file_name);
+    string str;
     while(get_graph(s_file)){
+        cin>>str;
         int flow = max_flow(0,graph.size()-1);
         cout<<flow<<endl;
     }
