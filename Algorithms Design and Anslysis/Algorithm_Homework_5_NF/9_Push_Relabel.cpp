@@ -141,10 +141,7 @@ int max_flow(int s, int t){
             }
         }
     }
-    for(Edge& e: graph[s]){
-        flow += e.flow;
-    }
-    return flow;
+    return excess[t];
 }
 vector<vector<int>> get_matrix(){
     vector<vector<int>> matrix(m + 1,vector<int>(n + 1,0));
