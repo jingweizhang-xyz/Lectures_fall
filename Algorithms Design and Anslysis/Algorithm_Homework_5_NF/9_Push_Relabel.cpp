@@ -84,7 +84,7 @@ bool get_graph(istream& in, int& cap){
 }
 
 void show_graph(){
-    // for debug
+    // for debugging
     for(int i = 0;i< graph.size();i++){
         cout<<i<<":";
         for(Edge &e: graph[i]){
@@ -155,9 +155,17 @@ vector<vector<int>> get_matrix(){
     }
     return matrix;
 }
-
+void show_matrix(vector<vector<int>> matrix){
+    for(vector<int> &row:matrix){
+        for(int b:row){
+            cout<<b<<" ";
+        }
+        cout<<endl;
+    }
+}
 bool check_matrix(){
     vector<vector<int>> matrix = get_matrix();
+    show_matrix(matrix);
     bool is_right = true;
     vector<int> check_r(m + 1, 0);
     vector<int> check_c(n + 1, 0);
