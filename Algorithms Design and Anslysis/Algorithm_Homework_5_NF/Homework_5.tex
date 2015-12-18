@@ -1,0 +1,208 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{clrscode3e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\title{Algorithm Homework 5 NF}
+\date{2015-12-17}
+\author{Jingwei Zhang 201528013229095}
+
+\begin{document}
+    \maketitle
+    \section{Problem 1}
+        \subsection{Algorithm}
+        \paragraph{} Establish $m$ nodes $g_i(i = 1,\dots,m)$ representing $m$ girls and $n$ nodes $b_j(j = 1,\dots,n)$ representing $n$ boys. If one girl($g_i$) loves one boy($b_j$), a directed edge from $g_i$ to $b_j$ with capacity $1$ is linked. Source node $s$ is linked to every girl $g_i$ with capacity $1$ from $s$ to $g_i$. Sink node $t$ is linked to every boy $b_j$ with capacity $1$ from $b_j$ to $t$. Then a maximum flow algorithm like Ford-Fulkerson algorithm from $s$ to $t$ should solve this problem. The flow this algorithm gets is the maximum number of pairs. Every flow from $g_i$ to $b_j$ in this maximum flow network forms a pair between $g_i$ to $b_j$.
+        \paragraph{Pseudo-code:} Suppose there are $m$ girls and $n$ boys. $L$ is the collection of loving, whose element $l_{ij}$ represents girl $i$ loves boy $j$.
+\begin{codebox}
+\Procname{$\proc{Girls-and-Boys-Matching}(m,n,L)$}
+\li $V \gets \{s,t\}$ \Comment Vertex set
+\li $E \gets \emptyset$ \Comment Edge set
+\li \For $i=1$ \To $m$ \label{li:Problem1-For-girls}
+\li     \Do
+            establish node $g_i$
+\li         $V \gets V \cup \{g_i\}$
+\li         establish an edge $e$ from $s$ to $g_i$
+\li         $\attrib{e}{capacity} \gets 1$
+\li         $E = E\cup\{e\}$
+        \End
+\li \For $j=1$ \To $n$ \label{li:Problem1-For-boys}
+\li     \Do
+            establish node $b_j$
+\li         $V \gets V \cup \{b_j\}$
+\li         establish an edge $e$ from $b_j$ to $t$
+\li         $\attrib{e}{capacity} \gets 1$
+\li         $E = E\cup\{e\}$
+        \End
+\li \For every $L_{ij} \in L$ \label{li:Problem1-For-edges}
+\li     \Do
+            establish an edge $e$ from $g_i$ to $b_j$
+\li         $\attrib{e}{capacity} \gets 1$
+\li         $E = E\cup\{e\}$
+        \End
+\li $G=<V,E>$ \Comment Graph
+\li \Return $\proc{Ford-Fulkerson}(G,s,t)$
+\end{codebox}
+        \subsection{Correctness}
+        \begin{proof}Firstly, capacities of every edge in this graph are integer $1$. Thus, the total flow and flow on every edge must be integers. Then, the flow that $\proc{Ford-Fulkerson}$ generates can be separated into several $s\sim g_i \sim b_j \sim t$ paths with flow $1$, since no back edge, including $g_i$ to $s$, $b_j$ to $g_i$ and $t$ to $b_j$, nor inner edge,including $g_i$ to $g_{i'}$ and $b_j$ to $b_{j'}$, exists in the original graph.
+        \item For every $s\sim g_i \sim b_j \sim t$ path, we will prove that it is equivalent to a pair between boys and girls. Since node $g_i$ can only be achieved be node $s$ and the edge from $s$ to $g_i$ has capacity $1$, one girl node $g_i$ exists in at most $s\sim g_i \sim b_j \sim t$ path. Similarly, one boy node $b_j$ exists in at most $s\sim g_i \sim b_j \sim t$ path.
+        \item The number of pairs is the same as the number of $s\sim g_i \sim b_j \sim t$ path with flow $1$. Moreover, $\proc{Ford-Fulkerson}$ maximize total flow. Thus, finding the maximum number of pairs is equivalent to the maximum flow problem above.
+        \end{proof}   
+        
+        \subsection{Complexity}
+            \paragraph{}The \kw{for} loop in line~\ref{li:Problem1-For-girls} will loop for $m$ times. The \kw{for} loop in line~\ref{li:Problem1-For-boys} will loop for $n$ times. The \kw{for} loop in line~\ref{li:Problem1-For-edges} will loop for $mn$ times. Thus, building the graph takes $O(m+n+mn)=O(mn)$, since the time complexity in every \kw{for} loop is $O(mn)$. This graph contains $m+n+2$ vertices and $O(mn)$ edges. Thus, $\proc{Ford-Fulkerson}(G,s,t)$ takes $O(mnC)$ time, where $C=\sum_{e out of s}\attrib{e}{capacity}=m$. Thus, the total time complexity is $O(m^2n)$ if $\proc{Ford-Fulkerson}$ is applied to solve this maximum flow problem.
+            
+    
+    
+    \section{Problem 2}
+        \subsection{Algorithm}
+        \paragraph{} Establish $m$ nodes $r_i(i = 1,\dots,m)$ representing $m$ rows and $n$ nodes $c_j(j = 1,\dots,n)$ representing $n$ columns. Every $r_i$ is linked to all $c_j$(from $r_i$ to $c_j$) with capacity $1$ is linked. Source node $s$ is linked to every row node $r_i$(from $s$ to $r_i$) with capacity $rs_i$, the sum of numbers in row $i$.  Sink node $t$ is linked to every boy $c_j$(from $c_j$ to $t$) with capacity $cs_j$, the sum of numbers in column $j$. 
+        \paragraph{}Then a maximum flow algorithm, like Push-Relabel algorithm, from $s$ to $t$ should be applied to solve this problem. If the flow this algorithm gets is equal to the sum of all numbers in this matrix($\sum_{i=1}^m{rs_i}$ or $\sum_{j=1}^n{cs_j}$), such matrix exists. Every flow from $r_i$ to $c_j$ in this maximum flow network indicates $M[i][j] = 1$.
+        \paragraph{Pseudo-code:} Suppose this matrix $M$ contains $m$ rows and $n$ columns. $rs$(index from $i = 1$ to $m$) is array containing the sum of numbers in the $i$-th row. $cs$(index from $j = 1$ to $n$) is the array containing the sum of numbers in the $j$-th column.
+\begin{codebox}
+\Procname{$\proc{find-bool-Matrix}(m,n,rs,rc)$}
+\li $V \gets \{s,t\}$ \Comment Vertex set
+\li $E \gets \emptyset$ \Comment Edge set
+\li $sum \gets 0$ \Comment Sum of all elements in matrix
+\li \For $i=1$ \To $m$ \label{li:Problem2-For-rows}
+\li     \Do
+            establish node $r_i$
+\li         $V \gets V \cup \{r_i\}$
+\li         establish an edge $e$ from $s$ to $r_i$
+\li         $\attrib{e}{capacity} \gets rs[i]$
+\li         $E = E\cup\{e\}$
+\li         $sum += rs[i]$
+        \End
+\li \For $j=1$ \To $n$ \label{li:Problem2-For-columns}
+\li     \Do
+            establish node $c_j$
+\li         $V \gets V \cup \{c_j\}$
+\li         establish an edge $e$ from $c_j$ to $t$
+\li         $\attrib{e}{capacity} \gets cs[j]$
+\li         $E = E\cup\{e\}$
+        \End
+\li \For $i=1$ \To $m$ \label{li:Problem2-For-edge-row}
+\li     \Do
+            \For $j = 1$ \To $n$ \label{li:Problem2-For-edge-column}
+\li             \Do
+                    establish an edge $e_{ij}$ from $r_i$ to $c_j$
+\li                 $\attrib{e_{ij}}{capacity} \gets 1$
+\li                 $E = E\cup\{e_{ij}\}$
+                \End
+        \End
+\li $G = <V,E>$ \Comment Graph
+\li $flow \gets \proc{Ford-Fulkerson}(G,s,t)$
+\li \If $sum == flow$
+\li \Then
+        $M = 0$ \Comment Matrix, m rows and n columns
+\li     \For $i = 1$ \To $m$
+\li         \Do
+                \For $j = 1$ \To $n$
+\li                 \Do
+                        \If $\attrib{e_{ij}}{capacity}>0$
+\li                        \Then $M[i][j] \gets 1$
+\li                        \Else $M[i][j] \gets 0$
+                        \End
+                    \End
+            \End
+\li     \Return $M$
+\li \Else 
+        \Return $\const{no-such-matrix}$
+
+\end{codebox}
+        
+        \subsection{Correctness}
+        \subsection{Correctness}
+        \begin{proof}Firstly, capacities of every edge in this graph are integers. Thus, the total flow and flow on every edge must be integers. Then, no back edge, including $r_i$ to $s$, $c_j$ to $r_i$ and $t$ to $c_j$, nor inner edge,including $r_i$ to $g_{i'}$ and $c_j$ to $b_{j'}$, exists in the original graph. Moreover, the capacity of edge from $r_i$ to $c_j$ is $1$. Thus, the flow that $\proc{Ford-Fulkerson}$ generates can be separated into several $s\sim r_i \sim c_j \sim t$ paths with flow $1$.
+        \item For every $s\sim r_i \sim c_j \sim t$ path with flow $1$, we will prove that it is equivalent $M[i][j]=1$. Since the flow of this path is $1$, this flow adds $1$ to the flow of the edge $s->r_i$, whose capacity is the sum of row $i$. Similarly, this flow adds $1$ to the flow of the edge $c_j->t$, whose capacity is the sum of column $i$. Thus, a size $1$ flow from $r_i$ to $c_j$ is the same as $M[i][j]=1$.
+        \end{proof}   
+        
+        \subsection{Complexity}
+            \paragraph{}The \kw{for} loop in line~\ref{li:Problem2-For-edge-row} will loop for $m$ times. The \kw{for} loop in line~\ref{li:Problem2-For-columns} will loop for $n$ times. The \kw{for} loop in line~\ref{li:Problem2-For-edge-column} will loop for $mn$ times. Thus, building the graph takes $O(m+n+mn)=O(mn)$, since the time complexity in every \kw{for} loop is $O(mn)$. This graph contains $m+n+2$ vertices and $O(mn)$ edges. Thus, $\proc{Ford-Fulkerson}(G,s,t)$ takes $O(mnC)$ time, where $C$, the maximum flow, is at most $S=\sum_{i=1}^m{rs_i}$. Thus, the total time complexity is $O(mnS)$($S=\sum_{i=1}^m{rs_i}$) if $\proc{Ford-Fulkerson}$ is applied to solve this maximum flow problem.
+            
+    \section{Problem 3}
+        \subsection{Algorithm}
+            \paragraph{}Firstly, run a maximum flow algorithm on $G$. Then, in the residual network, find collection $S$ containing all vertices that can be achieved through edge with remaining capacity from source $s$. Similarly, find collection $T$ containing all vertices that can achieved sink $t$ through edge with remaining capacity.
+            \paragraph{Pseudo-code:} Ford-Fulkerson algorithm is applied to solve maximum flow problem. $\attrib{e}{rev}$ means the corresponding reverted edge of $e$.
+\begin{codebox}
+\Procname{$\proc{DFS}(G,s)$}
+\li \If $s$ is not visited 
+\li \Then
+        set $s$ being visited 
+\li     $S \gets \{s\}$
+\li     \For every edge $e$ from $s$ with remaining capacity not $0$
+\li     \Do
+            $S \gets S \cup \proc{DFS}(G,\attrib{e}{to},r)$
+        \End
+\li     \Return $S$
+\li \Else \Return $\emptyset$
+    \End
+\end{codebox}
+\begin{codebox}
+\Procname{$\proc{Reverted-DFS}(G,t)$}
+\li \If $s$ is not visited 
+\li \Then
+        set $s$ being visited 
+\li     $S \gets \{s\}$
+\li     \For every edge $e$ to $t$ with remaining capacity not $0$
+\li     \Do
+            $S \gets S \cup \proc{DFS}(G,\attrib{e}{to},r)$
+        \End
+\li     \Return $S$
+\li \Else \Return $\emptyset$
+    \End
+\end{codebox}
+\begin{codebox}
+\Procname{$\proc{Unique-Cut}(G,s,t)$}
+\li $\proc{Push-Relabel}(G,s,t)$
+\li set all vertics in G to be not visited
+\li $S = \proc{DFS}(G,s)$
+\li $T = \proc{Reverted-DFS}(G,t)$
+\li \If $|S| + |T| == |\attrib{G}{V}|$
+\li \Then \Return $\const{is-unique}$
+\li \Else \Return $\const{is-not-unique}$
+    \End
+\end{codebox}
+        \subsection{Correctness}
+        \begin{proof}Firstly, in residual networks, $S$, containing all vertices that can be achieved through edges with remaining capacity larger than $0$ from source $S$, and $V-S$ form a minimum cut of original graph. Similarly, $V-T$ and $T$ form a minimum cut of original graph.
+        \item If the minimum cut is unique, these two cut are the same, $S=V_T$ and $V-S=T$. Thus, we have $S + T = V$ and $|S| + |T| == |V|$
+        \item If this graph contains multiple minimum cut. We denote every minimum cut as $L_i-R_i$ with $L_i$ containing $s$ and $R_i$ containing $t$. Then, since every $L_i-R_i$ is a minimum cut, every node in every $R_i$ should not be achieved from $s$ through edge with remaining capacity larger than $0$. Moreover, for every $L_i-R_i$,$L_i \cup R_i$. Thus, $S = \bigcap_i{L_i}$. Similarly, $T = \bigcap_i{R_i}$. Since all $L_i$ are different and all $R_i$ are different, $S \cup T=(\bigcap_i{L_i}) \cup (\bigcap_i{R_i}) \neq V$. Moreover,$S \cup T \subseteq V$  Thus, $|S| + |T| < |V|$.
+        \item Thus, $\proc{Unique-Cut}(G,s,t)$ judge the uniqueness of minimum cut correctly.
+        \end{proof}
+        
+        \subsection{Complexity}
+            \paragraph{}Firstly, $\proc{Push-Relabel}(G,s,t)$ takes $O(V^3)$ of time if a queue is applied to select active vertex. Then, the two deep first search algorithm on residual graph $G$ take $O(V+E)$ of thime. Thus, the total time complexity is $O(V^3)$.
+
+    \section{Problem 7}
+        \subsection{Dual LP Formulation}
+        \begin{equation*}
+\begin{array}{cl@{}ll}
+\text{Max}  & z' = \sum_e x_e u_e &\\
+\text{s.t.} & \sum_{e \in P}x_i \geq 1,\;  & \text{for all path }P  \\
+            & x_i \geq 0,\;  & \text{for all edge }e\\
+            
+\end{array}
+        \end{equation*}
+        \paragraph{Explanation:} $x_e = 1$ means that edge e is a minimum cut edge. $x_e = 0$ means that edge e is not a minimum cut edge. The first constraint means that for every path P, P contains at least one minimum cut edge. The second constraint show that $x_e$ can not be negative. The objective function $z'$ is one possible s-t cut. Minimizing this cut will get the minimum s-t cut.
+        
+    
+    \section{Problem 8}
+        \subsection{Result}
+            \paragraph{}Outputed flow:
+            \lstinputlisting{8.result}
+        \subsection{C++ Code}
+            \lstinputlisting[language=C++]{8_Ford_Fulkenson.cpp}
+    \section{Problem 9}
+        \subsection{Result}
+            \paragraph{}Outputed matrix(only the first one is shown):
+            \lstinputlisting{9_matrix.result}
+        \subsection{C++ Code}
+            \lstinputlisting[language=C++]{9_Push_Relabel.cpp}
+\end{document}
