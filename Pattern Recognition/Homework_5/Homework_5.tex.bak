@@ -19,12 +19,12 @@
     \section{Problem 1}
     \begin{figure}[H]
         \centering
-        %\includegraphics[scale=0.6]{P1.jpg}
+        \includegraphics[scale=0.5]{P1.jpg}
     \end{figure}
     \section{Problem 2}
     \begin{figure}[H]
         \centering
-        %\includegraphics[scale=0.5]{P2.jpg}
+        \includegraphics[scale=0.5]{P2.jpg}
     \end{figure}
     \section{Problem 3}
     \begin{figure}[H]
@@ -35,25 +35,34 @@
     \subsection{Result}
     \begin{table}[h!]
             \centering            
-            \begin{tabular}{l|*{2}{c}}
+            \begin{tabular}{c|*{2}{c}}
             \hline
-$Clastur No.$ & $600$ & $680$ & $720$ \\
+$Clastur No.$ & $center$ & $Number of samples$  \\
 \hline
-$t_i(min)$ & $660$ & $700$ & $740$ \\
+$1$ & $200$ & $(5.93835690,  4.47548968)$  \\
+$2$ & $201$ & $(5.47541305, -4.52601645)$  \\
+$3$ & $200$ & $(1.02155866, -0.93527395)$  \\
+$4$ & $199$ & $(1.07159471,  4.01702333)$  \\
+$5$ & $200$ & $(9.00870491, -0.04025460)$  \\
             \hline            
             \end{tabular}
 \end{table}
-    \begin{figure}[H]
-        \centering
-        %\includegraphics[scale=0.5]{PP1.png}
-        \caption{Figure for Batch BP}
-    \end{figure}
 
     \subsection{Code}
     \lstinputlisting[language=Python]{PP1.py}
     
-    \section{Programming Problem 1}
+    \section{Programming Problem 2}
     \subsection{Result}
+    \begin{figure}[H]
+        \centering
+        %\includegraphics[scale=0.5]{PP1.png}
+        \caption{Clustering Accuracy when $\sigma$ changes}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{PP2_k.png}
+        \caption{Clustering Accuracy when k changes}
+    \end{figure}
     \subsection{Code}
     \lstinputlisting[language=Python]{PP2.py}
 
