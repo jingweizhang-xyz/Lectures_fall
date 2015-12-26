@@ -1,0 +1,16 @@
+Passive voice is commonly used in the Methods section of a scientific manuscript to emphasize process, rather than agents.
+    Yes
+While statistics are effective tools to attract the attention of your readers when used as the opening sentence of an introduction, it is rarely used in General-Specific Texts.
+    No
+“Meanwhile” is a linking word commonly used in reviews and essays that do not have to adhere to the strict rules of academic writing, instead of “Furthermore”.
+    Yes
+The term “by which” is commonly used in formal writing instead of “whereby”.
+    No
+The phrases “on the one hand, on the other hand” and “while” are often used to compare between two different terms, concepts and results.
+    Yes
+The verb “show” can only be used in an informative location statement, where it requires the that clause.
+    No
+The verb “provide” can only be used for informative location statements, where it requires the that clause.
+    No
+When writing data commentaries, you should avoid reading too much into the data and draw unjustified conclusions. 
+    No
