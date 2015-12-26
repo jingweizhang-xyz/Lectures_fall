@@ -10,7 +10,8 @@ EPS = 1E-4
 def gen_points():
     x, y = [],[]
     for mean in gen_means:
-        x[len(x):len(x)], y[len(y):len(y)] = np.random.multivariate_normal(mean, Sigma, 200).T
+        x[len(x):len(x)], y[len(y):len(y)] = 
+            np.random.multivariate_normal(mean, Sigma, 200).T
     return x,y
 
 def get_samples(x, y):

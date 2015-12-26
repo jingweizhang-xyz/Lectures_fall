@@ -1,0 +1,60 @@
+\documentclass[]{article}
+
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{clrscode}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title{Homework 5}
+\date{2015-12-26}
+\author{Jingwei Zhang 201528013229095}
+
+\begin{document}
+    \maketitle
+    \section{Problem 1}
+    \begin{figure}[H]
+        \centering
+        %\includegraphics[scale=0.6]{P1.jpg}
+    \end{figure}
+    \section{Problem 2}
+    \begin{figure}[H]
+        \centering
+        %\includegraphics[scale=0.5]{P2.jpg}
+    \end{figure}
+    \section{Problem 3}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=1.0]{P3.png}
+    \end{figure}
+    \section{Programming Problem 1}
+    \subsection{Result}
+    \begin{table}[h!]
+            \centering            
+            \begin{tabular}{l|*{2}{c}}
+            \hline
+$Clastur No.$ & $600$ & $680$ & $720$ \\
+\hline
+$t_i(min)$ & $660$ & $700$ & $740$ \\
+            \hline            
+            \end{tabular}
+\end{table}
+    \begin{figure}[H]
+        \centering
+        %\includegraphics[scale=0.5]{PP1.png}
+        \caption{Figure for Batch BP}
+    \end{figure}
+
+    \subsection{Code}
+    \lstinputlisting[language=Python]{PP1.py}
+    
+    \section{Programming Problem 1}
+    \subsection{Result}
+    \subsection{Code}
+    \lstinputlisting[language=Python]{PP2.py}
+
+\end{document}
