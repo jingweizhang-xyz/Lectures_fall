@@ -41,9 +41,6 @@ def build_graph(samples):
                 v = np.subtract(S[r], S[c])
                 dis[c] = np.sum([x**2 for x in v])
         indexes = np.argsort(dis)
-        # print(indexes[0:k+1])
-        # print(dis[0:11])
-        # input()
         k = k_nearest
         for i in indexes[1:k+1]:
             G[r][i] = get_wij(dis[i])
@@ -152,6 +149,7 @@ if __name__ == '__main__':
         Accu.append(spectral_clustering(W))
     plt.plot(x, Accu)
     plt.show()
+
     # When k changes
     Accu = []
     x = []
@@ -163,5 +161,3 @@ if __name__ == '__main__':
         Accu.append(spectral_clustering(W))
     plt.plot(x, Accu)
     plt.show()
-    # Accu = spectral_clustering(W)
-    # print(Accu)
