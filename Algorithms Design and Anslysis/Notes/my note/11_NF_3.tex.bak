@@ -1,0 +1,29 @@
+\documentclass[a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{clrscode3e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{verbatim} %\begin{comment} \end{comment}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\title{Lecture 11 网络流的应用}
+\date{2016-1-2}
+\author{张敬玮}
+
+\begin{document}
+    \maketitle
+    \section{上节回顾}
+        \paragraph{}上一节我们讲到了网络流, 以及计算网络流的很多种算法, 包括最原始的Ford-Furkerson, 后面的Edmonds-Karp算法, Dinitz算法, 以及Tarjan在1983年提出的Push-Relabel算法. 其中有一个很关键的技巧就是缩放(scaling). 
+    \section{本节提要}
+        \paragraph{}本节我们要将网络流的应用. 因为网络流和线性规划是非常强有力的武器, 掌握了他们之后, 一大类的问题都可以归结成这种技术. 在这里提醒大家一点, 建模的本领是我们的看家本领之一, 而建模的本事在以下几个地方特别需要强调: 
+        \begin{enumerate}
+        \item 线性规划, 还有我们后面要讲的半正定规划
+        \item 网络流
+        \item 问题的规约, 下节课我们将NP-hard的时候将会提到
+        \end{enumerate}
+\end{document}
