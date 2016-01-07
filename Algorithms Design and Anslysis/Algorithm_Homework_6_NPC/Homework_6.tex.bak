@@ -1,0 +1,66 @@
+\documentclass[]{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{clrscode3e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\title{Algorithm Homework 6 NP}
+\date{2015-1-7}
+\author{Jingwei Zhang 201528013229095}
+
+\begin{document}
+    \maketitle
+    \section{Problem 1}
+        \begin{proof}[proof: Integer-programming is NPC]
+        \item Firstly, by checking $Ax \geq b$, we can verify this problem in polynomial time (matrix multiplication takes $O(mn^2)$ and comparison takes $O(m)$). Thus, Integer-programming problem is a NP problem.
+        \item Secondly, we will prove that 3SAT problem, a known NPC problem, is reducible to Integer-programming problem in polynomial time. For any instance $I$ of 3SAT problem (its formula is $\phi$), which contains $m$ variables $x_i(i = 1,\dots,m)$ and $n$ clauses, we construct a instance $I_i$ of Integer-programming as follows: 
+        \begin{align}
+        y_i \geq 0 \quad & \text{for all }i = 1,\dots,m \label{Eq_g0} \\
+        y_i \leq 1 \quad & \text{for all }i = 1,\dots,m \label{Eq_s1}\\
+        T_i + T_j + T_k \geq 1 \quad & \text{for all clause } (X_i \vee X_j \vee X_k) \label{Eq_clauses}
+        \end{align}
+        where 
+        \begin{align}
+        T_i = \begin{cases}
+                y_i \quad & \text{if } X_i = x_i \\
+                1 - y_i\quad & \text{if } X_i = \neg x_i 
+              \end{cases} 
+        \end{align}
+        The inequalities above is equivalent to $Ax \geq b$ since every inequality can be changed to $\sum_j a_{ij} x_j \geq b_i$. $y_i=1$ is equivalent to $x_i=true$ and $y_i=0$ is equivalent to $x_i= false$. Then, we will prove these inequalities(or this Integer-programming problem) is equivalent to 3SAT problem.
+        \begin{itemize}
+        \item Suppose there exits an assignment of variables $x_i(i = 1,\dots,m)$ such that $\phi$ is $true$. We assign $y_i$ with rules mentioned above. It is obvious that inequalities \ref{Eq_g0} and \ref{Eq_s1} are satisfied. Note that \ref{Eq_clauses} holds iff at least one of $X_i, X_j, X_k$ is true. Thus, all constrains will hold.
+        \item Suppose there exits an assignment of variables $x_i(i = 1,\dots,m)$ such that $\phi$ is $true$.
+        
+        \end{itemize}
+        \item Thus, Integer-programming problem is NPC.
+        \end{proof}
+        
+        
+        
+    \section{Problem 3}
+        %{Half-3AST is NPC:}
+        \begin{proof}[proof: Half-3SAT is NPC]
+        \item Firstly, by substituting the variables with the given assignment , then checking whether half of its clauses is true and half is false, we can verify this problem in polynomial time. Thus, Half-3SAT problem is a NP problem.
+        \item Secondly, we will prove that 3SAT problem, a known NPC problem, is reducible to Half-3SAT problem in polynomial time. For any instance $I$ of 3SAT problem, which contains $m$ variables $x_i(i = 1,\dots,m)$ and $n$ clauses, we construct a instance $I_h$ of Half-3SAT as follows: 
+        \begin{align}
+       \phi_{Ih} &= \phi_I \wedge T \wedge D \wedge \dots \wedge D \; \text{(D is repeated for }n+1 \text{ times)}   \\
+        D &= (x_{m+1} \vee x_{m+2} \vee x_{m+3}) \\
+        T &= (x_{m+1} \vee x_{m+2} \vee \neg x_{m+2})
+        \end{align}                
+        $\phi_I$ represents the CNF of $I$. $I_h$ contains $2n+2$ clauses and $m+3$ variables. Note that clause $T = x_{m+1} \vee x_{m+2} \vee \neg x_{m+2}$ is always true. Then, we will prove $I$ and $I_h$ are equivalent.
+        \begin{itemize}
+        \item Suppose there exits an assignment of variables $x_i(i = 1,\dots,m)$ such that $\phi_I$ is $true$. If we assign $x_{m+1} = x_{m+2} = x_{m+3} = false$, which leads to $D=false$, $\phi_{Ih}$ will be separated into $n+1$ $false$ clauses(all $D$) and $n+1$ $true$ clauses($n$ clauses of $\phi_I$ and $T$). Thus, there exists an assignment such that exactly half the clauses of $\phi_{Ih}$ evaluate to false and exactly half the clauses of $\phi_{Ih}$ evaluate to true.
+        \item Suppose there exists an assignment such that exactly $n+1$ clauses of $\phi_{Ih}$ evaluate to false and exactly $n+1$ clauses of $\phi_{Ih}$ evaluate to true. Since $T$ is always $true$, if $D=true$, there are at least $n+2 > n+1$ clauses with value $true$. This assignment is not possible under previous assumption. If $D=false$, there are $1$ $true$ clause($T$) and $n+1$ $false$ clause. Thus, the remaining $n$ clauses of $\phi_I$ must be $true$.
+        \end{itemize}
+        \item Thus, Half-3SAT problem is NPC.
+        \end{proof}
+
+
+\end{document}
