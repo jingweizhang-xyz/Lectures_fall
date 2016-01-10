@@ -1,9 +1,7 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2016.1.2)  2 JAN 2016 11:39
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2016.1.2)  10 JAN 2016 20:48
 entering extended mode
 **11_NF_3.tex
-
-("D:\Sync\Documents\Lectures\Algorithms Design and Anslysis\Notes\my note\11_NF
-_3.tex"
+(D:\Work-temp\svn\11_NF_3.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
 (D:\Dev\CTEX\MiKTeX\tex\latex\base\article.cls
@@ -591,75 +589,46 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(D:\Dev\CTEX\MiKTeX\tex\latex\listings\listings.sty
-\lst@mode=\count189
-\lst@gtempboxa=\box37
-\lst@token=\toks30
-\lst@length=\count190
-\lst@currlwidth=\dimen155
-\lst@column=\count191
-\lst@pos=\count192
-\lst@lostspace=\dimen156
-\lst@width=\dimen157
-\lst@newlines=\count193
-\lst@lineno=\count194
-\lst@maxwidth=\dimen158
+(D:\Work-temp\svn\algorithm.sty
+Package: algorithm 
 
-(D:\Dev\CTEX\MiKTeX\tex\latex\listings\lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count195
-\lst@skipnumbers=\count196
-\lst@framebox=\box38
-)
-(D:\Dev\CTEX\MiKTeX\tex\latex\listings\listings.cfg
-File: listings.cfg 2007/02/22 1.4 listings configuration
-))
-Package: listings 2007/02/22 1.4 (Carsten Heinz)
-
-(D:\Dev\CTEX\UserData\tex\latex\clrscode3e\clrscode3e.sty
-Package: clrscode3e 
-\c@codelinenumber=\count197
-\c@indent=\count198
-\digitwidth=\skip55
-\savecode=\box39
-\codeboxwidth=\skip56
-\c@thisindent=\count199
-)
-(D:\Dev\CTEX\MiKTeX\tex\latex\algorithms\algorithm.sty
-Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
-
+Document Style `algorithm' - floating environment
 (D:\Dev\CTEX\MiKTeX\tex\latex\float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count200
-\float@exts=\toks31
-\float@box=\box40
-\@float@everytoks=\toks32
-\@floatcapt=\box41
+\c@float@type=\count189
+\float@exts=\toks30
+\float@box=\box37
+\@float@everytoks=\toks31
+\@floatcapt=\box38
 )
 (D:\Dev\CTEX\MiKTeX\tex\latex\base\ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks33
-\c@algorithm=\count201
+\@float@every@algorithm=\toks32
+\c@algorithm=\count190
 )
-(D:\Dev\CTEX\MiKTeX\tex\latex\algorithms\algorithmic.sty
-Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-Normal \count register pool exhausted, switching to extended pool.
-\c@ALC@unique=\count277
-\c@ALC@line=\count278
-\c@ALC@rem=\count279
-\c@ALC@depth=\count280
-\ALC@tlm=\skip57
-\algorithmicindent=\skip58
+(D:\Work-temp\svn\algorithmic.sty
+Package: algorithmic 2005/07/05
+
+Document Style `algorithmic' - environment
+(D:\Dev\CTEX\MiKTeX\tex\latex\tools\calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count191
+\calc@Bcount=\count192
+\calc@Adimen=\dimen155
+\calc@Bdimen=\dimen156
+\calc@Askip=\skip55
+\calc@Bskip=\skip56
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count193
+\calc@Cskip=\skip57
 )
-(D:\Dev\CTEX\MiKTeX\tex\latex\tools\verbatim.sty
-Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks34
-\verbatim@line=\toks35
-\verbatim@in@stream=\read1
+\c@ALC@line=\count194
+\c@ALC@rem=\count195
+\c@ALC@depth=\count196
+\ALC@tlm=\skip58
+\algorithmicindent=\skip59
 )
 (D:\Dev\CTEX\MiKTeX\tex\latex\geometry\geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -668,44 +637,43 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
 )
-\Gm@cnth=\count281
-\Gm@cntv=\count282
-\c@Gm@tempcnt=\count283
-\Gm@bindingoffset=\dimen159
-\Gm@wd@mp=\dimen160
-\Gm@odd@mp=\dimen161
-\Gm@even@mp=\dimen162
-\Gm@layoutwidth=\dimen163
-\Gm@layoutheight=\dimen164
-\Gm@layouthoffset=\dimen165
-\Gm@layoutvoffset=\dimen166
-\Gm@dimlist=\toks36
+\Gm@cnth=\count197
+\Gm@cntv=\count198
+\c@Gm@tempcnt=\count199
+\Gm@bindingoffset=\dimen157
+\Gm@wd@mp=\dimen158
+\Gm@odd@mp=\dimen159
+\Gm@even@mp=\dimen160
+\Gm@layoutwidth=\dimen161
+\Gm@layoutheight=\dimen162
+\Gm@layouthoffset=\dimen163
+\Gm@layoutvoffset=\dimen164
+\Gm@dimlist=\toks33
 
 (D:\Dev\CTEX\MiKTeX\tex\xelatex\xetexconfig\geometry.cfg))
-("D:\Sync\Documents\Lectures\Algorithms Design and Anslysis\Notes\my note\11_NF
-_3.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 18.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 18.
+(D:\Work-temp\svn\11_NF_3.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 26.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 26.
  (D:\Dev\CTEX\MiKTeX\tex\latex\tipa\t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    ... okay on input line 26.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -713,61 +681,60 @@ LaTeX Font Info:    ... okay on input line 18.
 .................................................
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 18.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 18.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 18.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 18.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 18.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 18.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 18.
-LaTeX Font Info:    Redeclaring math accent \check on input line 18.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 18.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 18.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 18.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 18.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 18.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 26.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 26.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 26.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 26.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 26.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 26.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 26.
+LaTeX Font Info:    Redeclaring math accent \check on input line 26.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 26.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 26.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 26.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 26.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 26.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 18.
+(Font)              `operators' in the math version `normal' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU1/lmr/m/n on input line 18.
+(Font)                  OT1/cmr/m/n --> EU1/lmr/m/n on input line 26.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 18.
+(Font)              `operators' in the math version `bold' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> EU1/lmr/m/n on input line 18.
+(Font)                  OT1/cmr/bx/n --> EU1/lmr/m/n on input line 26.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 18.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 18.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> EU1/lmr/m/it on input line 18.
+(Font)                  OT1/cmr/m/it --> EU1/lmr/m/it on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> EU1/lmr/bx/n on input line 18.
+(Font)                  OT1/cmr/bx/n --> EU1/lmr/bx/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 18.
+(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 18.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 26.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 18.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 18.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> EU1/lmr/bx/it on input line 18.
+(Font)                  OT1/cmr/bx/it --> EU1/lmr/bx/it on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 18.
+(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 18.
-\c@lstlisting=\count284
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 26.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -808,7 +775,7 @@ Requested font "SimSun" at 17.28pt
  -> C:/WINDOWS/Fonts/simsun.ttc
 Requested font "SimSun/ICU" at 17.28pt
  -> C:/WINDOWS/Fonts/simsun.ttc
-\g_fontspec_family_SimSun_int=\count285
+\g_fontspec_family_SimSun_int=\count200
 Requested font "SimHei/ICU" at 17.28pt
  -> C:/WINDOWS/Fonts/simhei.ttf
 Requested font "[SIMKAI.TTF]/ICU" at 17.28pt
@@ -864,7 +831,7 @@ Requested font "cmex8" at 8.0pt
  -> cmex8
 Requested font "cmex7" at 6.0pt
  -> cmex7
-LaTeX Font Info:    Try loading font information for U+msa on input line 19.
+LaTeX Font Info:    Try loading font information for U+msa on input line 27.
 (D:\Dev\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
@@ -874,7 +841,7 @@ Requested font "msam10" at 8.0pt
  -> msam10
 Requested font "msam7" at 6.0pt
  -> msam7
-LaTeX Font Info:    Try loading font information for U+msb on input line 19.
+LaTeX Font Info:    Try loading font information for U+msb on input line 27.
 
 (D:\Dev\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -940,18 +907,239 @@ Requested font "SimSun/ICU" at 10.0pt
 Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.0
 pt
  -> C:/WINDOWS/Fonts/simsun.ttc
+Requested font "[lmromancaps10-regular]:mapping=tex-text" at 10.0pt
+ -> D:/Dev/CTEX/MiKTeX/fonts/opentype/public/lm/lmromancaps10-regular.otf
  [1
 
 ]
-("D:\Sync\Documents\Lectures\Algorithms Design and Anslysis\Notes\my note\11_NF
-_3.aux") ) 
-Here is how much of TeX's memory you used:
- 17442 strings out of 430478
- 346243 string characters out of 3191403
- 356397 words of memory out of 3000000
- 20353 multiletter control sequences out of 15000+200000
- 8485 words of font info for 57 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
- 57i,6n,36p,839b,345s stack positions out of 5000i,500n,10000p,200000b,50000s
+Requested font "[lmroman12-bold]:mapping=tex-text" at 12.0pt
+ -> D:/Dev/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman12-bold.otf
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 12.0
+pt
+ -> C:/WINDOWS/Fonts/simhei.ttf
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.0
+pt
+ -> C:/WINDOWS/Fonts/simhei.ttf
+Requested font "[lmroman7-regular]:mapping=tex-text" at 7.0pt
+ -> D:/Dev/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman7-regular.otf
+Requested font "[lmroman5-regular]:mapping=tex-text" at 5.0pt
+ -> D:/Dev/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman5-regular.otf
+Requested font "cmex7" at 7.0pt
+ -> cmex7
+Requested font "cmex7" at 5.0pt
+ -> cmex7
+Requested font "msam10" at 10.0pt
+ -> msam10
+Requested font "msam7" at 7.0pt
+ -> msam7
+Requested font "msam5" at 5.0pt
+ -> msam5
+Requested font "msbm10" at 10.0pt
+ -> msbm10
+Requested font "msbm7" at 7.0pt
+ -> msbm7
+Requested font "msbm5" at 5.0pt
+ -> msbm5
+File: Problems/L10-networkflowundirectedexample.eps Graphic file (type eps)
 
-Output written on 11_NF_3.pdf (1 page).
+<Problems/L10-networkflowundirectedexample.eps> [2]
+File: Problems/L10-networkflowundirecteddirected.eps Graphic file (type eps)
+
+<Problems/L10-networkflowundirecteddirected.eps>
+File: Problems/L10-networkflowundirecteddirectedflow.eps Graphic file (type eps
+)
+
+<Problems/L10-networkflowundirecteddirectedflow.eps>
+File: Problems/L10-networkflowundirecteddirectedflowrevising.eps Graphic file (
+type eps)
+
+<Problems/L10-networkflowundirecteddirectedflowrevising.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "[SIMKAI.TTF]/ICU:script=latn;language=DFLT;mapping=tex-text;" a
+t 10.0pt
+ -> C:/WINDOWS/Fonts/SIMKAI.TTF
+File: Problems/L10-networkflowrevising.eps Graphic file (type eps)
+<Problems/L10-networkflowrevising.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3]
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
+
+
+LaTeX Font Warning: Font shape `EU1/SimSun(0)/m/sc' undefined
+(Font)              using `EU1/SimSun(0)/m/n' instead on input line 144.
+
+File: Problems/L10-circulationexample.eps Graphic file (type eps)
+<Problems/L10-circulationexample.eps> [4]
+File: Problems/L10-circulationexamplenetwork.eps Graphic file (type eps)
+
+<Problems/L10-circulationexamplenetwork.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Problems/L10-circulationtomaximumflow.eps Graphic file (type eps)
+<Problems/L10-circulationtomaximumflow.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Problems/L10-circulationtomaximumflowchecking.eps Graphic file (type eps)
+
+<Problems/L10-circulationtomaximumflowchecking.eps> [5] [6]
+File: Problems/L10-lowerboundcirculationexample.eps Graphic file (type eps)
+
+<Problems/L10-lowerboundcirculationexample.eps> [7]
+File: Problems/L10-lowerboundcirculationstep1.eps Graphic file (type eps)
+
+<Problems/L10-lowerboundcirculationstep1.eps>
+File: Problems/L10-lowerboundcirculationstep2.eps Graphic file (type eps)
+
+<Problems/L10-lowerboundcirculationstep2.eps>
+File: Problems/L10-lowerboundcirculationstep3.eps Graphic file (type eps)
+
+<Problems/L10-lowerboundcirculationstep3.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
+File: Problems/L10-mincostflowexample.eps Graphic file (type eps)
+ <Problems/L10-mincostflowexample.eps>
+Requested font "[lmroman7-bold]:mapping=tex-text" at 7.0pt
+ -> D:/Dev/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman7-bold.otf
+Requested font "[lmroman5-bold]:mapping=tex-text" at 5.0pt
+ -> D:/Dev/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman5-bold.otf
+ [9] [10]
+File: Problems/L10-mincostflowNN.eps Graphic file (type eps)
+
+<Problems/L10-mincostflowNN.eps> [11]
+File: Problems/L10-mincostflowexamplestep1.eps Graphic file (type eps)
+
+<Problems/L10-mincostflowexamplestep1.eps>
+File: Problems/L10-mincostflowexamplestep1N.eps Graphic file (type eps)
+
+<Problems/L10-mincostflowexamplestep1N.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Problems/L10-mincostflowexamplestep2.eps Graphic file (type eps)
+<Problems/L10-mincostflowexamplestep2.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Problems/L10-mincostflowexamplestep2N.eps Graphic file (type eps)
+<Problems/L10-mincostflowexamplestep2N.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12] [13]
+File: Problems/L10-image-Einstein.png Graphic file (type QTm)
+ <use  "Problems/L10-image-Einstein.png" > [14]
+File: Problems/L10-image-example1.eps Graphic file (type eps)
+
+<Problems/L10-image-example1.eps>
+File: Problems/L10-image-example1-network.eps Graphic file (type eps)
+ <Problems/L10-image-example1-network.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15]
+File: Problems/L10-projectselectionexample-network.eps Graphic file (type eps)
+ <Problems/L10-projectselectionexample-network.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Problems/L10-projectselectionexample-network-cut.eps Graphic file (type e
+ps)
+<Problems/L10-projectselectionexample-network-cut.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[16]
+File: Problems/L10-projectselectionexample-network-cut-infeasible.eps Graphic f
+ile (type eps)
+ <Problems/L10-projectselectionexample-network-cut-infeasible.eps> [17]
+File: Problems/L10-disjointpathsexample.eps Graphic file (type eps)
+
+<Problems/L10-disjointpathsexample.eps>
+File: Problems/L10-disjointpathsexample-number.eps Graphic file (type eps)
+
+<Problems/L10-disjointpathsexample-number.eps> [18]
+File: Problems/L10-disjointpathsexample-Menger.eps Graphic file (type eps)
+
+<Problems/L10-disjointpathsexample-Menger.eps>
+File: Problems/L10-surveydesignexample-network.eps Graphic file (type eps)
+
+<Problems/L10-surveydesignexample-network.eps> [19]
+File: Problems/L10-matchingexample.eps Graphic file (type eps)
+
+<Problems/L10-matchingexample.eps>
+File: Problems/L10-matchingexample-network.eps Graphic file (type eps)
+ <Problems/L10-matchingexample-network.eps>
+[20]
+File: Problems/L10-perfectmatchingexample.eps Graphic file (type eps)
+ <Problems/L10-perfectmatchingexample.eps>
+File: Problems/L10-imperfectmatchingexample.eps Graphic file (type eps)
+
+<Problems/L10-imperfectmatchingexample.eps>
+File: Problems/L10-imperfectmatchingexampleproof.eps Graphic file (type eps)
+
+<Problems/L10-imperfectmatchingexampleproof.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21] [22]
+File: Problems/L10-baseballelimination.eps Graphic file (type eps)
+ <Problems/L10-baseballelimination.eps>
+File: Problems/L10-baseballeliminationproof.eps Graphic file (type eps)
+
+<Problems/L10-baseballeliminationproof.eps> [23] (D:\Work-temp\svn\11_NF_3.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 16413 strings out of 430478
+ 334322 string characters out of 3191403
+ 348212 words of memory out of 3000000
+ 19280 multiletter control sequences out of 15000+200000
+ 10256 words of font info for 74 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 57i,14n,36p,839b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on 11_NF_3.pdf (23 pages).
